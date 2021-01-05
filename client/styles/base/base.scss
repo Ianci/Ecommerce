@@ -1,0 +1,46 @@
+@import './mixins.scss';
+@import './variables.scss';
+
+
+*,
+*::after,
+*::before{
+
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html
+{
+    font-size: 62.5%;
+    @include respond(desktop){ //1200px
+        font-size: 56.25% //1 rem = 9 , 9/16 = 50%
+      }
+
+      @include respond(tab){ //900px
+        font-size: 50%;
+}
+
+    @include respond(phone) { //600px
+    font-size: 30%; // 1ren = 10 px/16px = 62.5
+     
+}
+   
+  @include respond(big-desktop){ //1800px
+      font-size: 75% //1rme = 12x 12/16
+  }
+}
+
+
+body{
+
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #777
+}
+
+.base__main {
+    background-color: $color-grey-light-1;
+}

@@ -1,0 +1,52 @@
+.topbar {
+    height: 90px;
+    background-color: $background-dark;
+    .ui.grid {
+        margin: 0;
+        padding: 0;
+        .column{
+            padding: 0;
+            
+        }
+    }
+    &__right {
+        display: flex !important;
+        align-items: center;
+        justify-content: flex-end;
+        .ui.input {
+            align-items: center;
+            input {
+                background: transparent !important;
+                border: 0;
+                border-bottom: 2px solid $primary !important;
+                color: $background !important;
+                padding: 5px 0 !important;
+                width: 220px;
+                font-size: $default-font-size;
+                transition: width 0.8s;
+                &:focus {
+                    width: 350px;
+                }
+            }
+            i {
+                color: $primary;
+                opacity: 1 !important;
+                font-size: $default-font-size;
+                right: -10px !important;
+            }
+        }
+    }
+    &__left {
+        display: flex !important;
+        align-items: center;
+        img {
+            height: 50px;
+            transition: all 0.5s;
+            &:hover {
+                transform: translateX(-15px)
+            }
+        }
+    }
+   
+}
+

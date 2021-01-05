@@ -1,0 +1,37 @@
+.menu {
+    background-color: $grey-dark;
+    border-radius: 0;
+    .ui.grid{
+        margin: 0;
+
+    }
+    &__left,
+    &__right {
+        padding: 0 !important;
+        display: flex !important;
+        align-items: center;
+
+        .ui.menu {
+            border: 0;
+            box-shadow: none;
+            height: 100%;
+            background: transparent;
+            .icon {
+                margin-right: 10px !important;
+                color: $primary;
+            }
+            .item {
+                color: $background;
+                border-radius: 0;
+               &:hover {
+                background: $background-dark;
+                color: $background;
+               }
+            }
+        }
+    }
+    &__right {
+    display: flex;
+    justify-content: flex-end;
+    }
+}
