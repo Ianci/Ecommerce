@@ -47,7 +47,7 @@ function MenuPlataforms(){
 function MenuUser(){
     return (
         <Menu.Item>
-            <Icon name="user outline" />
+            <Icon name="user"/>
             Mi cuenta
         </Menu.Item>
     )

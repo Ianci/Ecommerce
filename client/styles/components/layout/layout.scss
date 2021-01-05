@@ -1,7 +1,17 @@
 .layout__basic {
     min-height: 100vh;
+    background-image: url('https://game-ecommerce-ian.s3.us-east-2.amazonaws.com/static/30541.png');
+    background-size: cover;
+    object-fit: cover;
+    background-position: center;
+
 }
 .layout__content {
     background-color: $background;
     height: 100vh;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.80);
+    overflow: scroll;
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
