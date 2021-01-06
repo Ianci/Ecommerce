@@ -10,8 +10,9 @@ export default function LoginForm({ showRegisterForm, onCloseModal }) {
 
     const [ loading, setLoading ] = useState(false)
     const [ error, setError ] = useState(null)
-    const auth = authContext()
-    console.log(auth)
+    const { login } = authContext()
+   
+
     async function loginApi(values){
         
         const url = `${BASE_PATH}/auth/local`;
@@ -25,9 +26,9 @@ export default function LoginForm({ showRegisterForm, onCloseModal }) {
         try {
             const response = await fetch(url, params)
             const result = await response.json()
-            console.log(result)
-            const errorMsg = result.message[0].messages[0].message
-            setError(errorMsg)
+            
+            //Login function que recibe como param el token
+            login(result.jwt)
             
         } catch (error) {
             console.log(error)
@@ -35,6 +36,7 @@ export default function LoginForm({ showRegisterForm, onCloseModal }) {
         }
     }
 
+   
     return (
         <Formik initialValues={{identifier: "", password: ""}}
         validationSchema = {Yup.object({
@@ -53,6 +55,7 @@ export default function LoginForm({ showRegisterForm, onCloseModal }) {
                     setLoading(false)
                   }, 1000);
         }}>
+            
        {( {isValid, dirty, isSubmitting})=>(
            
             <div className="login">
