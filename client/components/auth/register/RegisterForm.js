@@ -3,11 +3,11 @@ import { Formik, Form, ErrorMessage, Field} from 'formik'
 import { Input, Button } from 'semantic-ui-react'
 import * as Yup from 'yup';
 import { BASE_PATH } from '../../../utils/constants'
-import { useHistory } from 'react-router-dom'
+
 export default function RegisterForm({ showLoginForm, onCloseModal}) {
     const [ loading, setLoading ] = useState(false)
     const [ error, setError ] = useState(null)
-    const history = useHistory()
+   
 
 
     async function registerFunction(values){

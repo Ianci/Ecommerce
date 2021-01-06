@@ -3,11 +3,11 @@ import '../styles/styles.scss'
 import 'semantic-ui-css/semantic.min.css'
 import { AuthContext } from '../context/authContext'
 import jwtDecode from 'jwt-decode'
-import { saveToken, getToken} from '../api/token';
-
+import { saveToken, getToken, deleteToken} from '../api/token';
+import { useRouter } from 'next/router'
 
 export default function MyApp({ Component, pageProps }) {
-
+  const router = useRouter()
   const [ auth, setAuth ] = useState(undefined)
   const [ reloadUser, setReloadUser ] = useState(false)
   useEffect(() => {
@@ -34,7 +34,14 @@ export default function MyApp({ Component, pageProps }) {
       token,
       userId: jwtDecode(token).id
     })
+  }
 
+  const logout = () => {
+    if(auth){
+      deleteToken()
+      setAuth(null)
+      router.push('/')
+    }
   }
 
   //useMemo
@@ -42,7 +49,7 @@ export default function MyApp({ Component, pageProps }) {
     () => ({
       auth,
       login: login,
-      logout: () => null,
+      logout,
       setReloadUser,
     }), [auth]
   )

@@ -3,7 +3,8 @@ import { Container, Menu, Grid, Icon, Label } from 'semantic-ui-react'
 import Link from 'next/link'
 import BasicModal from '../modal/BasicModal'
 import Auth from '../auth/Auth'
-
+import useAuth from '../../hooks/useAuth'
+import { Input, Button  } from 'semantic-ui-react'
 
 
 export default function MenuWeb() {
@@ -12,6 +13,8 @@ export default function MenuWeb() {
     const [titleModal, setTitleModal ] = useState('Iniciar sesion')
     const onShowModal = () => setShowModal(true);
     const onCloseModal = () => setShowModal(false);
+    //Context
+    const { logout, auth } = useAuth()
     return (
         <div className="menu">
             <Container>
@@ -21,7 +24,7 @@ export default function MenuWeb() {
 
                     </Grid.Column>
                     <Grid.Column className="menu__right" width={9}>
-                        <MenuUser onShowModal={onShowModal}/>
+                        {auth ? <Button onClick={logout}> Desconectarse</Button> : <MenuUser onShowModal={onShowModal}/> }
 
                     </Grid.Column>
                 </Grid>
