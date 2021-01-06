@@ -3,12 +3,15 @@ import { Formik, Form, ErrorMessage, Field} from 'formik'
 import { Input, Button  } from 'semantic-ui-react'
 import * as Yup from 'yup';
 import { BASE_PATH } from '../../../utils/constants'
+import  authContext  from '../../../hooks/useAuth';
+
 
 export default function LoginForm({ showRegisterForm, onCloseModal }) {
 
     const [ loading, setLoading ] = useState(false)
     const [ error, setError ] = useState(null)
-
+    const auth = authContext()
+    console.log(auth)
     async function loginApi(values){
         
         const url = `${BASE_PATH}/auth/local`;
