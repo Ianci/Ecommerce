@@ -1,0 +1,24 @@
+.login {
+    padding: 2rem;
+    margin: 0 auto;
+    &__container {
+        @include flexCenter;
+        flex-direction: column;
+    }
+    &__content{
+        @include flexCenter;
+        flex-direction: column;
+    }
+    &__input {
+        margin: 1rem;
+    }
+    &__error {
+        color: red;
+        font-weight: bold;
+    }
+    &__span {
+        cursor: pointer;
+        color: $color-btn;
+        padding-left: .3rem;
+    }
+}

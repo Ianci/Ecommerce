@@ -1,0 +1,10 @@
+.modal__icon{
+    float: right;
+    cursor: pointer;
+}
+.modal {
+    .header {
+        background: $primary !important;
+        color: $background !important;
+    }
+}
