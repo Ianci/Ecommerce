@@ -1,5 +1,5 @@
 import { BASE_PATH } from '../utils/constants'
-
+import { authFetch } from '../utils/fetch'
 export async function registerFunction(values){
     try {
         const url = `${BASE_PATH}/auth/local/register`
@@ -19,3 +19,14 @@ export async function registerFunction(values){
         
     }
 }
+
+export async function getMeApi(logout){
+    try {
+        const url = `${BASE_PATH}/users/me`;
+        const result = await authFetch(url, null, logout)
+        return result ? result : null;  
+    } catch (error) {
+        return null
+    }
+}
+
